@@ -4,6 +4,8 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CartPage from "./pages/CartPage";
+import Checkout from "./pages/Checkout";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -11,6 +13,14 @@ const router = createBrowserRouter([
     element: (
       <>
         <Home></Home>
+      </>
+    ),
+  },
+  {
+    path: "/product-detail",
+    element: (
+      <>
+        <ProductDetailPage></ProductDetailPage>
       </>
     ),
   },
@@ -35,6 +45,14 @@ const router = createBrowserRouter([
     element: (
       <>
         <CartPage></CartPage>
+      </>
+    ),
+  },
+  {
+    path: "/checkout",
+    element: (
+      <>
+        <Checkout></Checkout>
       </>
     ),
   },
