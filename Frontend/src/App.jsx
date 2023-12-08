@@ -1,10 +1,10 @@
 import React from "react";
-import Counter from "./features/counter/Counter";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
     <>
-      <Counter></Counter>
+      <Home></Home>
     </>
   );
 };
