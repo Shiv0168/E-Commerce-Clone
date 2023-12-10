@@ -6,13 +6,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import Protected from "./features/auth/components/Protected";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <>
-        <Home></Home>
+        <Protected>
+          <Home></Home>
+        </Protected>
       </>
     ),
   },
@@ -20,7 +23,9 @@ const router = createBrowserRouter([
     path: "/product-detail/:id",
     element: (
       <>
-        <ProductDetailPage></ProductDetailPage>
+        <Protected>
+          <ProductDetailPage></ProductDetailPage>
+        </Protected>
       </>
     ),
   },
@@ -44,7 +49,9 @@ const router = createBrowserRouter([
     path: "/cart",
     element: (
       <>
-        <CartPage></CartPage>
+        <Protected>
+          <CartPage></CartPage>
+        </Protected>
       </>
     ),
   },
@@ -52,7 +59,9 @@ const router = createBrowserRouter([
     path: "/checkout",
     element: (
       <>
-        <Checkout></Checkout>
+        <Protected>
+          <Checkout></Checkout>
+        </Protected>
       </>
     ),
   },
