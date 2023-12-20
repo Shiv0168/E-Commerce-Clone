@@ -2478,7 +2478,7 @@
         "state": "MP",
         "pinCode": "462036"
       },
-      "status": "pending",
+      "status": "delivered",
       "id": 1
     },
     {
@@ -2845,7 +2845,7 @@
         "state": "MP",
         "pinCode": "462036"
       },
-      "status": "pending",
+      "status": "dispatched",
       "id": 6
     }
   ]
