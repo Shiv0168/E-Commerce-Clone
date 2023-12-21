@@ -1,10 +1,15 @@
 import React from "react";
 import Cart from "../features/cart/Cart";
+import Footer from "../features/common/Footer";
+import Navbar from "../features/navbar/Navbar";
 
 const CartPage = () => {
   return (
     <>
-      <Cart></Cart>
+      <Navbar>
+        <Cart></Cart>
+      </Navbar>
+      <Footer></Footer>
     </>
   );
 };

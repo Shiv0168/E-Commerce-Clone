@@ -1,14 +1,17 @@
 import { useSelector, useDispatch } from "react-redux";
 import {
   deleteItemFromCartAsync,
+  selectCartStatus,
   selectItems,
   updateCartAsync,
 } from "./cartSlice";
 import { Link, Navigate } from "react-router-dom";
+import { ColorRing } from "react-loader-spinner";
 
 export default function Cart() {
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
+  const status = useSelector(selectCartStatus);
   const totalAmount = items.reduce(
     (amount, item) => item.price * item.quantity + amount,
     0
@@ -26,6 +29,17 @@ export default function Cart() {
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
+      {status === "loading" ? (
+        <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass="blocks-wrapper"
+          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        />
+      ) : null}
       <div>
         <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
