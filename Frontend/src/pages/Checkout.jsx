@@ -8,7 +8,7 @@ import {
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { selectLoggedInUser } from "../features/auth/authSlice";
-import { updateUserAsync } from "../features/user/userSlice";
+import { selectUserInfo, updateUserAsync } from "../features/user/userSlice";
 import { useState } from "react";
 import {
   createOrderAsync,
@@ -25,7 +25,7 @@ function Checkout() {
     formState: { errors },
   } = useForm();
 
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const items = useSelector(selectItems);
   const currentOrder = useSelector(selectCurrentOrder);
   const totalAmount = items.reduce(
@@ -33,7 +33,6 @@ function Checkout() {
     0
   );
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
-  console.log(totalAmount, totalItems);
 
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState("cash");
